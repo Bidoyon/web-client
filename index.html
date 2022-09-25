@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chargement - Bidoyon</title>
+    <script src="js/server.js"></script>
+    <script src="js/dynamic.js"></script>
+    <script src="js/sections.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/forms.css">
+    <link rel="stylesheet" href="css/charts.css">
+    <link rel="stylesheet" href="css/squeezes.css">
+    <link rel="stylesheet" href="css/command-line.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<section id="index">
+    <div class="page">
+        <div class="page-elements">
+            <div class="navigation"></div>
+            <div class="content admin">
+                <span class="not-connected"></span>
+                <span class="connected invisible"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="login">
+    <div class="page">
+        <div class="page-elements">
+            <div class="navigation"></div>
+            <div class="content">
+                <p>Veuillez entrer les identifiants donnés par votre administrateur pour vous connecter.</p>
+                <p>Si vous n'en possédez pas, contactez-le.</p><br>
+                <span id="login-failed" class="invisible">Les identifiants sont erronés et n'ont pas pu aboutir à une authentification.<br><br></span>
+                <label for="login-username-input">Nom d'utilisateur :</label><br>
+                <input id="login-username-input" type="text"><br><br>
+                <label for="login-password-input">Mot de passe :</label><br>
+                <input id="login-password-input" type="password"><br><br>
+                <input id="login-button" type="button" value="Connexion">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="statistics">
+    <div class="page">
+        <div class="page-elements">
+            <div class="navigation"></div>
+            <div class="content">
+                <table>
+                    <tr>
+                        <td>Point de vue</td>
+                        <td>Fruits utilisés (Kg)</td>
+                        <td>Jus produit (L)</td>
+                        <td>Production moyenne (L/Kg)</td>
+                    </tr>
+                    <tr>
+                        <td>GLOBAL (6 pressées)</td>
+                        <td>220</td>
+                        <td>120</td>
+                        <td>0,6</td>
+                    </tr>
+                    <tr>
+                        <td>ESTIMATIONS GLOBALES</td>
+                        <td>220</td>
+                        <td>120</td>
+                        <td>0,6</td>
+                    </tr>
+                    <tr>
+                        <td>PRESSEE EN COURS (N°6)</td>
+                        <td>220</td>
+                        <td>120</td>
+                        <td>0,6</td>
+                    </tr>
+
+                </table>
+                <div class="charts">
+                    <div class="chart">
+                        <h2 class="chart-title">PRODUCTION (%)</h2>
+                        <canvas id="production-chart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h2 class="chart-title">FRUITS (Kg)</h2>
+                        <canvas id="fruits-chart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h2 class="chart-title">STOCKAGE (L)</h2>
+                        <canvas id="storage-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="fruits">
+    <div class="page">
+        <div class="page-elements">
+            <div class="navigation"></div>
+            <div class="content">
+                <p>Espace de gestion des fruits apportés par les utilisateurs et leur disponibilité.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="squeezes">
+    <div class="page">
+        <div class="page-elements">
+            <div class="navigation"></div>
+            <div class="content">
+                <p>Espace de gestion de la production de jus au cours des pressées.</p>
+                <br>
+                <div class="squeezes">
+                    <div class="main-squeeze">
+                        <p class="main-squeeze-title">Pressée N°1 (en cours)</p>
+                        <br>
+                        <p>Fruits utilisés : 600Kg</p>
+                        <p>Jus produit : 500L</p>
+                        <br>
+                        <p>Rentabilité : 0,6L/Kg</p>
+                    </div>
+                    <div class="all-squeezes">
+                        Toutes les pressées :
+                        <div class="squeeze">
+                            N°12
+                            <p>Fruits utilisés : 600Kg</p>
+                            <p>Jus produit : 500L</p>
+                            <p>Rentabilité : 0,6L/Kg</p>
+                        </div>
+                        <div class="squeeze">
+                            N°13
+                            <p>Fruits utilisés : 600Kg</p>
+                            <p>Jus produit : 500L</p>
+                            <p>Rentabilité : 0,6L/Kg</p>
+                        </div>
+                        <div class="squeeze">
+                            N°18
+                            <p>Fruits utilisés : 600Kg</p>
+                            <p>Jus produit : 500L</p>
+                            <p>Rentabilité : 0,6L/Kg</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="storage">
+    <div class="page">
+        <div class="page-elements">
+            <div class="navigation"></div>
+        </div>
+    </div>
+</section>
+
+<section id="administration">
+    <div class="page">
+        <div class="page-elements">
+            <div class="navigation"></div>
+            <div class="content">
+                <p>Espace de paramétrage distant de la plateforme.</p>
+                <br>
+                <label for="command-line">Ligne de commandes</label>
+                <br>
+                <input id="command-line" class="command-line" type="text">
+                <br>
+                <div class="forms">
+                    <div class="form">
+                        <br>
+                        Obtenir des informations
+                        <br><br>
+                        <label for="get-information-id-input">Identifiant ou nom :</label>
+                        <br>
+                        <input id="get-information-id-input" class="small-input" type="text">
+                        <br><br>
+                        <input id="get-information-button" type="button" value="Rechercher">
+                    </div>
+                    <div class="form">
+                        <br>
+                        Créer un compte
+                        <br><br>
+                        <label for="create-user-username-input">Nom d'utilisateur :</label>
+                        <br>
+                        <input id="create-user-username-input" class="small-input" type="text">
+                        <br><br>
+                        <label for="create-user-password-input">Mot de passe :</label>
+                        <br>
+                        <input id="create-user-password-input" class="small-input" type="text">
+                        <br><br>
+                        <input id="create-user-button" type="button" value="Créer">
+                    </div>
+                    <div class="form">
+                        <br>
+                        Supprimer un compte
+                        <br><br>
+                        <label for="delete-user-id-input">Identifiant :</label>
+                        <br>
+                        <input id="delete-user-id-input" class="small-input" type="number">
+                        <br><br>
+                        <input id="delete-user-button" type="button" value="Supprimer">
+                    </div>
+                    <div class="form">
+                        <br>
+                        Modifier un compte
+                        <br><br>
+                        Modifier :
+                        <br>
+                        <input id="modify-user-name-radio" name="delete-user-radio" type="radio">
+                        <label for="modify-user-name-radio">le nom</label>
+                        <br>
+                        <input id="modify-user-password-radio" name="delete-user-radio" type="radio">
+                        <label for="modify-user-password-radio">le mot de passe</label>
+                        <br><br>
+                        <label for="modify-user-id-input">Identifiant :</label>
+                        <br>
+                        <input id="modify-user-id-input" class="small-input" type="number">
+                        <br><br>
+                        <label for="modify-user-value-input">Nouvelle valeur :</label>
+                        <br>
+                        <input id="modify-user-value-input" class="small-input" type="text">
+                        <br><br>
+                        <input id="modify-user-button" type="button" value="Modifier">
+                    </div>
+                    <div class="form">
+                        <br>
+                        Modifier les rôles
+                        <br>
+                        <br>
+                        <label for="modify-roles-id-input">Identifiant :</label>
+                        <br>
+                        <input id="modify-roles-id-input" class="small-input" type="number">
+                        <br>
+                        <br>
+                        <label for="modify-roles-role-input">Rôle :</label>
+                        <br>
+                        <input id="modify-roles-role-input" class="small-input" type="text">
+                        <br>
+                        <br>
+                        <input id="modify-roles-add-button" type="button" value="Ajouter">
+                        <input id="modify-roles-delete-button" type="button" value="Supprimer">
+                    </div>
+                </div>
+                <br>
+                Sortie (ligne de commandes et formulaires)
+                <div id="command-line-result" class="command-line-result">. . .</div>
+                <br>
+                <a href="" target="_blank">→ Télécharger les données</a>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

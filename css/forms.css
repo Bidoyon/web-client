@@ -1,0 +1,35 @@
+input {
+    padding: 5px;
+}
+
+.small-input {
+    width: 200px;
+}
+
+.forms {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form {
+    margin-right: 100px;
+}
+
+@media screen and (max-width: 1700px) {
+    .form {
+        width: 25%;
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .form {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .form {
+        width: 100%;
+    }
+}

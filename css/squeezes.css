@@ -1,0 +1,24 @@
+.squeezes {
+    display: flex;
+}
+
+.main-squeeze {
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #a4f83d;
+    margin-right: 50px;
+    height: min-content;
+}
+
+.main-squeeze-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #7a4609;
+}
+
+.squeeze {
+    margin: 5px 0 10px 0;
+    border-radius: 3px;
+    background-color: #078f0d;
+    padding: 10px;
+}
