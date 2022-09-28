@@ -23,3 +23,39 @@ const showNotConnected = () => {
         connectedElement.classList.add("invisible")
     }
 }
+
+const enableMessage = (sectionID, messageID) => {
+    disableMessages(sectionID)
+    const message = document.querySelector("#" + messageID)
+    message.classList.remove("invisible")
+}
+
+const disableMessages = (sectionID) => {
+    const messages = document.querySelector("#" + sectionID).getElementsByClassName("message")
+    for (const message of messages) {
+        message.classList.add("invisible")
+    }
+}
+
+const enablePanel = (sectionID, panelID) => {
+    disablePanels(sectionID)
+    const panel = document.querySelector("#" + panelID)
+    panel.classList.remove("invisible")
+}
+
+const disablePanels = (sectionID) => {
+    const panels = document.querySelector("#" + sectionID).getElementsByClassName("panel")
+    for (const panel of panels) {
+        panel.classList.add("invisible")
+    }
+}
+
+const readInput = (inputID) => {
+    const input = document.querySelector("#" + inputID)
+    return input.value
+}
+
+const writeInput = (inputID, value) => {
+    const input = document.querySelector("#" + inputID)
+    return input.value = value
+}

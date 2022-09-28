@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/forms.css">
     <link rel="stylesheet" href="css/charts.css">
     <link rel="stylesheet" href="css/squeezes.css">
-    <link rel="stylesheet" href="css/command-line.css">
+    <link rel="stylesheet" href="css/administration.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -31,14 +31,31 @@
         <div class="page-elements">
             <div class="navigation"></div>
             <div class="content">
-                <p>Veuillez entrer les identifiants donnés par votre administrateur pour vous connecter.</p>
-                <p>Si vous n'en possédez pas, contactez-le.</p><br>
-                <span id="login-failed" class="invisible">Les identifiants sont erronés et n'ont pas pu aboutir à une authentification.<br><br></span>
-                <label for="login-username-input">Nom d'utilisateur :</label><br>
-                <input id="login-username-input" type="text"><br><br>
-                <label for="login-password-input">Mot de passe :</label><br>
-                <input id="login-password-input" type="password"><br><br>
-                <input id="login-button" type="button" value="Connexion">
+                <div id="login-panel" class="panel invisible">
+                    <p>Veuillez entrer les identifiants donnés par votre administrateur pour vous connecter.</p>
+                    <p>Si vous n'en possédez pas, contactez-le.</p><br>
+                    <span id="login-failed" class="invisible">Les identifiants sont erronés et n'ont pas pu aboutir à une authentification.<br><br></span>
+                    <label for="login-username-input">Nom d'utilisateur :</label><br>
+                    <input id="login-username-input" type="text"><br><br>
+                    <label for="login-password-input">Mot de passe :</label><br>
+                    <input id="login-password-input" type="password"><br><br>
+                    <input id="login-button" type="button" value="Connexion">
+                </div>
+                <div id="connect-panel" class="panel">
+                    <p>Connectez d'abord votre navigateur au serveur.</p>
+                    <br>
+                    <p id="connect-waiting" class="message invisible">
+                        Veuillez patienter tant que le navigateur n'a pas été connecté...
+                        <br>
+                        <br>
+                    </p>
+                    <p id="connect-failed" class="message invisible">
+                        La connexion du navigateur au serveur a échoué. Veuillez réessayer.
+                        <br>
+                        <br>
+                    </p>
+                    <input id="connect-button" type="button" value="Connecter le navigateur">
+                </div>
             </div>
         </div>
     </div>
@@ -113,17 +130,16 @@
             <div class="content">
                 <p>Espace de gestion de la production de jus au cours des pressées.</p>
                 <br>
-                <div class="squeezes">
-                    <div class="main-squeeze">
-                        <p class="main-squeeze-title">Pressée N°1 (en cours)</p>
-                        <br>
-                        <p>Fruits utilisés : 600Kg</p>
-                        <p>Jus produit : 500L</p>
-                        <br>
-                        <p>Rentabilité : 0,6L/Kg</p>
-                    </div>
-                    <div class="all-squeezes">
-                        Toutes les pressées :
+                <div class="squeezes-panel">
+                    <div class="squeezes-list">
+                        <div class="squeeze main-squeeze">
+                            <span class="main-squeeze-title">Pressée N°1 (en cours)</span>
+                            <br>
+                            <p>Fruits utilisés : 600Kg</p>
+                            <p>Jus produit : 500L</p>
+                            <br>
+                            <p>Rentabilité : 0,6L/Kg</p>
+                        </div>
                         <div class="squeeze">
                             N°12
                             <p>Fruits utilisés : 600Kg</p>
@@ -141,6 +157,69 @@
                             <p>Fruits utilisés : 600Kg</p>
                             <p>Jus produit : 500L</p>
                             <p>Rentabilité : 0,6L/Kg</p>
+                        </div>
+                        <div class="squeeze">
+                            N°13
+                            <p>Fruits utilisés : 600Kg</p>
+                            <p>Jus produit : 500L</p>
+                            <p>Rentabilité : 0,6L/Kg</p>
+                        </div>
+                        <div class="squeeze">
+                            N°18
+                            <p>Fruits utilisés : 600Kg</p>
+                            <p>Jus produit : 500L</p>
+                            <p>Rentabilité : 0,6L/Kg</p>
+                        </div>
+                    </div>
+
+                    <div class="forms squeezes">
+                        <div class="form squeezes">
+                            <br>
+                            Supprimer une pressée
+                            <br><br>
+                            <label for="create-squeeze-id-input">Pressée :</label>
+                            <br>
+                            <input id="create-squeeze-id-input" class="small-input" type="number">
+                            <br><br>
+                            <input id="create-squeeze-button" type="button" value="Créer">
+                        </div>
+                        <div class="form squeezes">
+                            <br>
+                            Supprimer une pressée
+                            <br><br>
+                            <label for="delete-squeeze-id-input">Pressée :</label>
+                            <br>
+                            <input id="delete-squeeze-id-input" class="small-input" type="number">
+                            <br><br>
+                            <input id="delete-squeeze-button" type="button" value="Supprimer">
+                        </div>
+                        <div class="form squeezes">
+                            <br>
+                            Modifier l'utilisation de fruits
+                            <br><br>
+                            <label for="modify-used-fruits-id-input">Pressée :</label>
+                            <br>
+                            <input id="modify-used-fruits-id-input" class="small-input" type="number">
+                            <br><br>
+                            <label for="modify-used-fruits-fruits-input">Ajout de fruits :</label>
+                            <br>
+                            <input id="modify-used-fruits-fruits-input" class="small-input" type="number">
+                            <br><br>
+                            <input id="modify-used-fruits-button" type="button" value="Modifier">
+                        </div>
+                        <div class="form squeezes">
+                            <br>
+                            Modifier la production de jus
+                            <br><br>
+                            <label for="modify-produced-juice-id-input">Pressée :</label>
+                            <br>
+                            <input id="modify-produced-juice-id-input" class="small-input" type="number">
+                            <br><br>
+                            <label for="modify-produced-juice-juice-input">Ajout de jus:</label>
+                            <br>
+                            <input id="modify-produced-juice-juice-input" class="small-input" type="number">
+                            <br><br>
+                            <input id="modify-produced-juice-button" type="button" value="Modifier">
                         </div>
                     </div>
                 </div>
@@ -167,9 +246,11 @@
                 <label for="command-line">Ligne de commandes</label>
                 <br>
                 <input id="command-line" class="command-line" type="text">
+                <br><br>
+                <input id="command-line-process" type="button" value="Valider">
                 <br>
-                <div class="forms">
-                    <div class="form">
+                <div class="forms admin">
+                    <div class="form admin">
                         <br>
                         Obtenir des informations
                         <br><br>
@@ -179,7 +260,7 @@
                         <br><br>
                         <input id="get-information-button" type="button" value="Rechercher">
                     </div>
-                    <div class="form">
+                    <div class="form admin">
                         <br>
                         Créer un compte
                         <br><br>
@@ -193,7 +274,7 @@
                         <br><br>
                         <input id="create-user-button" type="button" value="Créer">
                     </div>
-                    <div class="form">
+                    <div class="form admin">
                         <br>
                         Supprimer un compte
                         <br><br>
@@ -203,7 +284,7 @@
                         <br><br>
                         <input id="delete-user-button" type="button" value="Supprimer">
                     </div>
-                    <div class="form">
+                    <div class="form admin">
                         <br>
                         Modifier un compte
                         <br><br>
@@ -225,7 +306,7 @@
                         <br><br>
                         <input id="modify-user-button" type="button" value="Modifier">
                     </div>
-                    <div class="form">
+                    <div class="form admin">
                         <br>
                         Modifier les rôles
                         <br>

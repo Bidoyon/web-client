@@ -1,0 +1,31 @@
+.command-line, .command-line-result {
+    width: 90%;
+}
+
+.command-line-result {
+    padding: 10px;
+    border-radius: 3px;
+    border-color: #757575;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #e1e1e1;
+}
+
+@media screen and (max-width: 1700px) {
+    .form.admin {
+        width: 25%;
+        margin-right: 50px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .form.admin {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .form.admin {
+        width: 100%;
+    }
+}

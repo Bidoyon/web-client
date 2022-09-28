@@ -14,22 +14,3 @@ input {
 .form {
     margin-right: 100px;
 }
-
-@media screen and (max-width: 1700px) {
-    .form {
-        width: 25%;
-        margin-right: 50px;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .form {
-        width: 40%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .form {
-        width: 100%;
-    }
-}

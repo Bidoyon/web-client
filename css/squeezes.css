@@ -1,7 +1,3 @@
-.squeezes {
-    display: flex;
-}
-
 .main-squeeze {
     padding: 10px;
     border-radius: 3px;
@@ -17,8 +13,58 @@
 }
 
 .squeeze {
-    margin: 5px 0 10px 0;
+    margin: 0 0 10px 0;
     border-radius: 3px;
-    background-color: #078f0d;
+    background-color: #4b94f3;
     padding: 10px;
+}
+
+.squeezes-list {
+    width: 30%;
+}
+
+.main-squeeze {
+    background-color: #2affcd;
+}
+
+.squeezes-panel {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.forms.squeezes {
+    padding: 0 50px;
+    width: 60%;
+}
+
+.form.squeezes {
+    width: 35%;
+}
+
+@media screen and (max-width: 1300px) {
+    .form.squeezes {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .squeezes-list {
+        width: 100%;
+    }
+    .forms.squeezes {
+        padding: 0;
+        width: 100%;
+    }
+    .form.squeezes {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .main-squeeze-title {
+        font-size: 20px;
+    }
+    .form.squeezes {
+        width: 100%;
+    }
 }
